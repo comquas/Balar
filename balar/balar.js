@@ -181,9 +181,9 @@ function generateHighlight()
 
 function addsideBarButton()
 {
-  $("#content").prepend('<div id="topNav"><a id="navmenu" href="#sidebar"></a></div>');
+  $("#content").prepend('<div id="topNav"><a id="navmenu" href="#"></a></div>');
   
-  $("#navmenu").click(function(){
+  $("#navmenu").bind('click',function(){
   
      $('#navmenu').sidr({
       name : 'sidr-main',
