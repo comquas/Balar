@@ -8,28 +8,9 @@ $(document).ready(function(){
   generateHighlight();
   addsideBarButton();
 
-
-  $("#navmenu").bind('click',function(){
-  
-     $.sidr('toggle');
-     
+  var snapper = new Snap({
+    element: document.getElementById('toc')
   });
-
-    $(".sidr-inner a").bind('click',function(e){
-      var that = this;
-      e.preventDefault();
-      $.sidr('close',function() {
-        var href = $(that).attr("href");
-        topMenuHeight = 32;
-            offsetTop = href === "#" ? 0 : $(href).offset().top-topMenuHeight+1;
-        $('html, body').stop().animate({ 
-            scrollTop: offsetTop
-        }, 300);
-        
-      });
-        
-        
-    });
 
 });
 
@@ -187,14 +168,5 @@ function generateHighlight()
 
 function addsideBarButton()
 {
-  $("#content").prepend('<div id="topNav"><a id="navmenu" href="#"></a></div>');
-
-  $('#navmenu').sidr({
-      name : 'sidr-main',
-      side: 'left',
-      source: '#toc'
-    });
-
-
-
+  //$("#content").prepend('<div id="topNav"><a id="navmenu" href="#"></a></div>');
 }
