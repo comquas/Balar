@@ -9,6 +9,12 @@ $(document).ready(function(){
   addsideBarButton();
 
 
+  $("#navmenu").bind('click',function(){
+  
+     $.sidr('toggle');
+     
+  });
+
     $(".sidr-inner a").bind('click',function(e){
       var that = this;
       e.preventDefault();
@@ -182,18 +188,9 @@ function generateHighlight()
 function addsideBarButton()
 {
   $("#content").prepend('<div id="topNav"><a id="navmenu" href="#"></a></div>');
-  
-  $("#navmenu").bind('click',function(){
-  
-     $('#navmenu').sidr({
-      name : 'sidr-main',
-      side: 'left',
-      source: '#toc'
-    });
-  });
-
 
   $('#navmenu').sidr({
+      name : 'sidr-main',
       side: 'left',
       source: '#toc'
     });
