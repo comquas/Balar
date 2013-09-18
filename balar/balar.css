@@ -139,4 +139,7 @@ a , a:visited { color:#2badad;text-decoration: none;}
   #toc {
     display: none;
   }
+  #topNav {
+    display: none;
+  }
 }
