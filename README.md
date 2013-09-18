@@ -1,10 +1,10 @@
-#EasyDoc
+#Balar
 
 Easy way to create documentation.
 
 ##How To
 
- - download EasyDoc from [github](https://github.com/saturngod/easydoc/releases)
+ - download Balar from [github](https://github.com/saturngod/Balar)
  - Edit index.html between `<div id="content">` and `</div>`
  - write with markdown
 
@@ -37,9 +37,14 @@ puts markdown.to_html
 
 ##Inspirations
 
-[SGDoc](saturngod.github.com/SGDoc/) have inspired **EasyDoc**. Original template design are base on Flatdoc's theme-white CSS.
+[SGDoc](saturngod.github.com/SGDoc/) have inspired **Balar**. Original template design are base on Flatdoc's theme-white CSS.
 
 ##Changelog
+
+###Version 0.8
+
+- support mobile version
+- Change name to Balar
 
 ###Version 0.5
 
@@ -52,7 +57,7 @@ puts markdown.to_html
 
 ##Acknowledgements
 
-**EasyDoc** is authored and maintained by [Saturngod](http://en.saturngod.net).
+**Balar** is authored and maintained by [Saturngod](http://en.saturngod.net).
 Released under the [MIT License](http://opensource.org/licenses/mit-license.php).
 
 
