@@ -8,9 +8,6 @@ $(document).ready(function(){
   generateHighlight();
   addsideBarButton();
 
-  var snapper = new Snap({
-    element: document.getElementById('toc')
-  });
 
 });
 
@@ -106,11 +103,24 @@ function scrollSpyForActiveLi()
     menuItems.click(function(e){
         
       var href = $(this).attr("href");
-      
-          offsetTop = href === "#" ? 0 : $(href).offset().top-topMenuHeight+1;
+      var topNavVisible = $("#topNav").is(":visible");
+
+      if(topNavVisible)
+      {
+          offsetTop = href === "#" ? 0 : $(href).offset().top-topMenuHeight-33;
+      }
+      else {
+        offsetTop = href === "#" ? 0 : $(href).offset().top-topMenuHeight+1;
+      }
       $('html, body').stop().animate({ 
           scrollTop: offsetTop
       }, 300);
+
+      if(topNavVisible)
+      {
+          //hide the menu
+          $('#sidebar #toc').slideToggle('fast');
+      }
       e.preventDefault();
     });
 
@@ -168,5 +178,10 @@ function generateHighlight()
 
 function addsideBarButton()
 {
-  //$("#content").prepend('<div id="topNav"><a id="navmenu" href="#"></a></div>');
+  $("#sidebar").prepend('<div id="topNav"><a id="navmenu" href="#"></a></div>');
+
+  $("#topNav").on('click',function(e){
+    e.preventDefault();
+    $('#sidebar #toc').slideToggle();
+  });
 }

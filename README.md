@@ -41,6 +41,11 @@ puts markdown.to_html
 
 ##Changelog
 
+### Version 0.9
+
+- Fixed Mobile Version
+
+
 ###Version 0.8
 
 - support mobile version
