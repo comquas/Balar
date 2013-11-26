@@ -90,6 +90,16 @@ a , a:visited { color:#2badad;text-decoration: none;}
   color: #FFF;
 }
 
+#search {
+  border-radius: 8px;
+  border:1px solid #2badad;
+  height: 25px;
+  width: 100%;
+  margin-top: 20px;
+  padding: 5px;
+  outline: none;
+}
+
 @media screen and (min-width: 747px) {
 
   #topnav {
@@ -114,6 +124,10 @@ a , a:visited { color:#2badad;text-decoration: none;}
     padding-left: 210px;
     position: relative;
   }
+  #sidebar #toc{
+      display: block;
+    }
+
 }
 @media screen and (max-width: 747px) {
 

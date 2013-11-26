@@ -1,13 +1,17 @@
 var inc = 1;
 
 
+
 $(document).ready(function(){
+
+  setupOverrideContains();
 
   generateTOC();
   scrollSpyForActiveLi();
   generateHighlight();
   addsideBarButton();
 
+  setupSearchKey();
 
 });
 
@@ -184,4 +188,29 @@ function addsideBarButton()
     e.preventDefault();
     $('#sidebar #toc').slideToggle();
   });
+}
+
+function setupSearchKey() {
+  $("#search").keyup(function(event) {
+
+    var search = $(this).val();
+    search = $.trim(search);
+    if(search== '')
+    {
+        $("#toc ul li").show();
+    }
+    else {
+      $("#toc ul li").hide();
+      $("#toc ul li:contains('"+search+"')").show();
+    }
+  });
+}
+
+function setupOverrideContains()
+{
+  $.expr[":"].contains = $.expr.createPseudo(function(arg) {
+    return function( elem ) {
+        return $(elem).text().toUpperCase().indexOf(arg.toUpperCase()) >= 0;
+    };
+});
 }
