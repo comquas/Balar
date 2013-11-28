@@ -197,11 +197,19 @@ function setupSearchKey() {
     search = $.trim(search);
     if(search== '')
     {
+      if($("#toc").attr("data-autohide").toUpperCase()=="TRUE")
+      {
+            $("#toc > ul > li > ul").css("display","none");
+      }
         $("#toc ul li").show();
     }
     else {
       $("#toc ul li").hide();
       $("#toc ul li:contains('"+search+"')").show();
+      if($("#toc").attr("data-autohide").toUpperCase()=="TRUE")
+      {
+            $("#toc > ul > li > ul").css("display","block");
+      }
     }
   });
 }
