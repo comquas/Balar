@@ -41,6 +41,10 @@ puts markdown.to_html
 
 ##Changelog
 
+### Version 0.9.5
+
+- add search in side bar
+
 ### Version 0.9
 
 - Fixed Mobile Version
@@ -66,4 +70,5 @@ puts markdown.to_html
 Released under the [MIT License](http://opensource.org/licenses/mit-license.php).
 
 
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/saturngod/balar/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
