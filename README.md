@@ -41,6 +41,10 @@ puts markdown.to_html
 
 ##Changelog
 
+### Version 0.9.6
+
+- support IE 10 or later
+
 ### Version 0.9.5
 
 - add search in side bar
