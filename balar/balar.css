@@ -120,6 +120,22 @@ a , a:visited { color:#2badad;text-decoration: none;}
     padding-left: 20px;
     padding-right: 20px;
   }
+  
+  #content table {
+    border : 1px solid gray;
+    border-spacing:0px;
+    font-size:14px;
+  }
+  
+  #content td ,#content th {
+    border:1px solid gray;
+    padding: 5px;
+  }
+  
+  #content tbody tr:nth-child(odd)
+  {
+    background-color:#EEE;
+  }
   #container {
     padding-left: 210px;
     position: relative;

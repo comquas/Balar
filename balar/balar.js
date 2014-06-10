@@ -7,7 +7,7 @@ $(document).ready(function(){
   setupOverrideContains();
 
   generateTOC();
-  scrollSpyForActiveLi();
+scrollSpyForActiveLi();
   generateHighlight();
   addsideBarButton();
 
@@ -23,7 +23,7 @@ function rec(node,current,array)
     }
 
     var li = "<ul>";
-    
+
     $(node).nextAll(array[current-1]+","+ array[current]).each(function(){
         if($(this).prop('tagName')==array[current-1])
         {
@@ -47,8 +47,8 @@ function generateTOC()
 {
 
     var md = $("#content").html();
-    var converter = new Showdown.converter();
-    var html = converter.makeHtml(md);
+
+    var html = marked(md);
     $("#content").html(html);
     
 
@@ -96,10 +96,9 @@ function scrollSpyForActiveLi()
         menuItems = topMenu.find("a");
         // Anchors corresponding to menu items
         scrollItems = menuItems.map(function(){
-          
           var selector = $(this).attr("href").replace(/\//g,"\\");
           var item = $(selector);
-          
+
           if (item.length) { return item; }
         });
 
@@ -110,6 +109,7 @@ function scrollSpyForActiveLi()
     menuItems.click(function(e){
         
       var href = $(this).attr("href");
+      
       var topNavVisible = $("#topNav").is(":visible");
 
       if(topNavVisible)
