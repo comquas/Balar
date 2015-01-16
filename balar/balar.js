@@ -96,7 +96,7 @@ function scrollSpyForActiveLi()
         menuItems = topMenu.find("a");
         // Anchors corresponding to menu items
         scrollItems = menuItems.map(function(){
-          var selector = $(this).attr("href").replace(/\//g,"\\");
+          var selector = $(this).attr("href").replace(/\//g,"\\").replace(/\(/g,"\\(").replace(/\)/g,"\\)");
           var item = $(selector);
 
           if (item.length) { return item; }
