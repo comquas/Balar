@@ -108,7 +108,7 @@ function scrollSpyForActiveLi()
     // so we can get a fancy scroll animation
     menuItems.click(function(e){
         
-      var href = $(this).attr("href");
+      var href = $(this).attr("href").replace(/\//g,"\\").replace(/\(/g,"\\(").replace(/\)/g,"\\)");
       
       var topNavVisible = $("#topNav").is(":visible");
 
@@ -149,7 +149,8 @@ function scrollSpyForActiveLi()
            lastId = id;
            // Set/remove active class
            menuItems.parent().removeClass("active");
-          menuItems.filter("[href=#"+id+"]").parent().addClass("active");
+           var selector = id.replace(/\//g,"\\").replace(/\(/g,"\\(").replace(/\)/g,"\\)");
+          menuItems.filter("[href=#"+selector+"]").parent().addClass("active");
           
           if($("#toc").attr("data-autohide").toUpperCase()=="TRUE")
           {
