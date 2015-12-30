@@ -24,7 +24,7 @@ a , a:visited { color:#2badad;text-decoration: none;}
 #sidebar { line-height: 22px; font-size:13px;}
 #sidebar > .title {border-bottom: 0px;padding-bottom: 0px;margin-bottom: 5px;}
 #toc > ul{padding: 0px}
-
+#content blockquote {border-left:5px solid #2badad; padding-left: 10px; margin-left:0px;}
 
 #toc > ul > li {
     color: #2ecc71;

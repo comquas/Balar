@@ -47,7 +47,19 @@ function generateTOC()
 {
 
     var md = $("#content").html();
-
+	
+	//fixed for user typing error
+	md = md.replace (/&gt;/g,">");
+	md = md.replace (/#/g,"# ");
+	md = md.replace (/# #/g,"##");
+	md = md.replace (/# #/g,"##");
+	md = md.replace (/# #/g,"##");	
+	md = md.replace (/# #/g,"##");
+	md = md.replace (/#  /g,"#");
+	
+    marked.setOptions({
+		gfm: true
+	});
     var html = marked(md);
     $("#content").html(html);
     
