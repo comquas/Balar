@@ -84,5 +84,3 @@ puts markdown.to_html
 Released under the [MIT License](http://opensource.org/licenses/mit-license.php).
 
 
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/saturngod/balar/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-
