@@ -41,6 +41,12 @@ puts markdown.to_html
 
 ##Changelog
 
+### Version 0.98
+
+- Fixed Double Quote
+- Fixed / include in header
+- Fixed Syntax Highlighting
+
 ### Version 0.9.7
 
 - support markdown table
