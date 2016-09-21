@@ -30,7 +30,7 @@ function rec(node,current,array)
             
             return false;
         }
-         li += "<li><a href='#"+$(this).text().replace(/ /g,"-")+inc+"'>"+$(this).text()+"</a>";
+        li += "<li><a href='#"+$(this).text().replace(/ /g,"-").replace(/\//g,"\\\/").replace(/"/g,"\\\"")+inc+"'>"+$(this).text()+"</a>";
         //$(this).before("<a name='"+$(this).text()+inc+"'></a>");
         $(this).attr("id",$(this).text().replace(/ /g,"-")+inc);
         inc++;
@@ -46,20 +46,20 @@ function rec(node,current,array)
 function generateTOC()
 {
 
-    var md = $("#content").html();
-	
-	//fixed for user typing error
-	md = md.replace (/&gt;/g,">");
-	md = md.replace (/#/g,"# ");
-	md = md.replace (/# #/g,"##");
-	md = md.replace (/# #/g,"##");
-	md = md.replace (/# #/g,"##");	
-	md = md.replace (/# #/g,"##");
-	md = md.replace (/#  /g,"#");
-	
-    marked.setOptions({
-		gfm: true
-	});
+  var md = $("#content").html();
+  
+  //fixed for user typing error
+  md = md.replace (/&gt;/g,">");
+  md = md.replace (/#/g,"# ");
+  md = md.replace (/# #/g,"##");
+  md = md.replace (/# #/g,"##");
+  md = md.replace (/# #/g,"##");	
+  md = md.replace (/# #/g,"##");
+  md = md.replace (/#  /g,"#");
+  
+  marked.setOptions({
+    gfm: true
+  });
     var html = marked(md);
     $("#content").html(html);
     
@@ -74,7 +74,7 @@ function generateTOC()
           return;
         }
 
-        li += "<li><a href='#"+$(this).text().replace(/ /g,"-")+inc+"'>"+$(this).text()+"</a>";
+        li += "<li><a href='#"+$(this).text().replace(/ /g,"-").replace(/\//g,"\\\/").replace(/"/g,"\\\"")+inc+"'>"+$(this).text()+"</a>";
         // $(this).before("<a name='"+$(this).text()+inc+"'></a>");
         $(this).attr("id",$(this).text().replace(/ /g,"-")+inc);
         inc++;
@@ -98,12 +98,12 @@ function generateTOC()
 
 function scrollSpyForActiveLi()
 {
-   //scroll spy
+  //scroll spy
     // Cache selectors
     var lastId,
         topMenu = $("#toc"),
-       // topMenuHeight = topMenu.outerHeight()+50,
-       topMenuHeight = 0;
+      // topMenuHeight = topMenu.outerHeight()+50,
+      topMenuHeight = 0;
         // All list items
         menuItems = topMenu.find("a");
         // Anchors corresponding to menu items
@@ -120,7 +120,8 @@ function scrollSpyForActiveLi()
     // so we can get a fancy scroll animation
     menuItems.click(function(e){
         
-      var href = $(this).attr("href").replace(/\//g,"\\").replace(/\(/g,"\\(").replace(/\)/g,"\\)");
+      var href = $(this).attr("href").replace(/\(/g,"\\(").replace(/\)/g,"\\)");
+      
       
       var topNavVisible = $("#topNav").is(":visible");
 
@@ -145,23 +146,23 @@ function scrollSpyForActiveLi()
 
     // Bind to scroll
     $(window).scroll(function(){
-       // Get container scroll position
-       var fromTop = $(this).scrollTop()+topMenuHeight;
-       
-       // Get id of current scroll item
-       var cur = scrollItems.map(function(){
-         if ($(this).offset().top < fromTop)
-           return this;
-       });
-       // Get the id of the current element
-       cur = cur[cur.length-1];
-       var id = cur && cur.length ? cur[0].id : "";
-       
-       if (lastId !== id) {
-           lastId = id;
-           // Set/remove active class
-           menuItems.parent().removeClass("active");
-           var selector = id.replace(/\//g,"\\").replace(/\(/g,"\\(").replace(/\)/g,"\\)");
+      // Get container scroll position
+      var fromTop = $(this).scrollTop()+topMenuHeight;
+      
+      // Get id of current scroll item
+      var cur = scrollItems.map(function(){
+        if ($(this).offset().top < fromTop)
+          return this;
+      });
+      // Get the id of the current element
+      cur = cur[cur.length-1];
+      var id = cur && cur.length ? cur[0].id : "";
+      
+      if (lastId !== id) {
+          lastId = id;
+          // Set/remove active class
+          menuItems.parent().removeClass("active");
+          var selector = id.replace(/\//g,"\\").replace(/\(/g,"\\(").replace(/\)/g,"\\)");
           menuItems.filter("[href=#"+selector+"]").parent().addClass("active");
           
           if($("#toc").attr("data-autohide").toUpperCase()=="TRUE")
@@ -178,22 +179,30 @@ function scrollSpyForActiveLi()
           }
           
           
-       }                   
+      }                   
     });
 }
 
 function generateHighlight()
 {
+
+  $("pre > code").each(function(ele,i) {
+    //if it's empty, will use JSON
+    if ($(this).attr('class') === undefined) {
+        $(this).addClass('lang-json');
+    }
+  });
+
   hljs.tabReplace = '    '; //4 spaces
-    hljs.initHighlightingOnLoad();
+  hljs.initHighlightingOnLoad();
 
-    $("pre > code").each(function(ele,i) {
-      //fix for hightlight.js erro
-      var newHTML = $(this).html().replace(/&amp;gt;/gm,"&gt;").replace(/&amp;lt;/gm,"&lt;");
-      
-      $(this).html(newHTML);
+  $("pre > code").each(function(ele,i) {
+    //fix for hightlight.js erro
+    var newHTML = $(this).html().replace(/&amp;gt;/gm,"&gt;").replace(/&amp;lt;/gm,"&lt;");
+    
+    $(this).html(newHTML);
 
-    });
+  });
 }
 
 function addsideBarButton()
