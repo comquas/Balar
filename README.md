@@ -41,6 +41,10 @@ puts markdown.to_html
 
 ##Changelog
 
+### Version 0.99
+
+- support RESTFUL URL in document
+
 ### Version 0.98
 
 - Fixed Double Quote
