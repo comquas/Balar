@@ -198,7 +198,7 @@ function generateHighlight()
 
   $("pre > code").each(function(ele,i) {
     //fix for hightlight.js erro
-    var newHTML = $(this).html().replace(/&amp;gt;/gm,"&gt;").replace(/&amp;lt;/gm,"&lt;");
+    var newHTML = $(this).html().replace(/&amp;gt;/gm,"&gt;").replace(/&amp;lt;/gm,"&lt;").replace(/&amp;/gm,"&");
     
     $(this).html(newHTML);
 

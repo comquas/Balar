@@ -188,3 +188,54 @@ a , a:visited { color:#2badad;text-decoration: none;}
     display: none;
   }
 }
+
+
+/* For hlsjs REST API */
+
+.lang-GET {
+  background: #FFF !important;
+  border: 0px;
+  border-left: 5px solid #009926;
+  padding: 10px 0px 10px 10px;
+}
+.lang-GET:before {
+  content: "GET ";
+  color: #009926;
+  font-weight: bold;
+}
+
+.lang-POST {
+  background: #FFF !important;
+  border: 0px;
+  border-left: 5px solid #003e9b;
+  padding: 10px 0px 10px 10px;
+}
+.lang-POST:before {
+  content: "POST ";
+  color: #003e9b;
+  font-weight: bold;
+}
+
+.lang-DELETE {
+  background: #FFF !important;
+  border: 0px;
+  border-left: 5px solid #d14;
+  padding: 10px 0px 10px 10px;
+}
+.lang-DELETE:before {
+  content: "DELETE ";
+  color: #d14;
+  font-weight: bold;
+}
+
+.lang-PUT {
+  background: #FFF !important;
+  border: 0px;
+  border-left: 5px solid #008080;
+  padding: 10px 0px 10px 10px;
+}
+.lang-PUT:before {
+  content: "PUT ";
+  color: #008080;
+  font-weight: bold;
+}
