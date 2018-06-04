@@ -4,14 +4,16 @@ var inc = 1;
 
 $(document).ready(function(){
 
-  setupOverrideContains();
-
-  generateTOC();
-scrollSpyForActiveLi();
-  generateHighlight();
-  addsideBarButton();
-
-  setupSearchKey();
+  $.get('./Content.md', function(data) {
+    $("#content").text(data);
+    setupOverrideContains();
+    generateTOC();
+    scrollSpyForActiveLi();
+    addsideBarButton();
+    setupSearchKey();
+    generateHighlight();
+  },'text');
+  
 
 });
 
@@ -194,9 +196,14 @@ function generateHighlight()
   });
 
   hljs.tabReplace = '    '; //4 spaces
-  hljs.initHighlightingOnLoad();
 
+  $('pre code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+  
   $("pre > code").each(function(ele,i) {
+
+    
     //fix for hightlight.js erro
     var newHTML = $(this).html().replace(/&amp;gt;/gm,"&gt;").replace(/&amp;lt;/gm,"&lt;").replace(/&amp;/gm,"&");
     
